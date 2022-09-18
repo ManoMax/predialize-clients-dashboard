@@ -9,7 +9,12 @@ import { RouterModule } from "@angular/router";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { PagesModule } from "./pages/pages.module";
-import { NavbarModule } from "./navigation/navebar.module";
+import { NavbarModule } from "./navigation/navbar.module";
+
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatSidenavModule } from  '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatButtonModule } from  '@angular/material/button';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +27,11 @@ import { NavbarModule } from "./navigation/navebar.module";
     HttpClientModule,
     NavbarModule,
     PagesModule,
+    RouterModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent],
