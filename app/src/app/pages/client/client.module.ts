@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { CardClientComponent } from '../../components/client/card-client/card-client.component';
 
 export const ClientRoutes: Routes = [
   {
@@ -21,7 +22,7 @@ export const ClientRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [ClientComponent, ListClientComponent],
+  declarations: [ClientComponent, ListClientComponent, CardClientComponent],
   imports: [CommonModule,
     MatCardModule,
     FormsModule,
