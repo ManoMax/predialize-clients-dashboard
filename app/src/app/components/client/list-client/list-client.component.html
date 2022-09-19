@@ -1,3 +1,9 @@
+<form class="form">
+    <mat-form-field class="input-full-width" appearance="fill">
+        <mat-label>Filtrar clientes</mat-label>
+        <input matInput placeholder="Ex. Predialize" (change)="keyPress($event)">
+    </mat-form-field>
+</form>
 <ul>
     <mat-card *ngFor="let client of clients" class="item-client">
         <div>
@@ -10,9 +16,8 @@
                 <p>
                     Quantidade total de imóveis: {{ client.quant_realties }}
                 </p>
-              </mat-card-content>
+            </mat-card-content>
         </div>
         <img [src]="client.image_src" class="img1" alt="logo do cliente">
     </mat-card>
 </ul>
-

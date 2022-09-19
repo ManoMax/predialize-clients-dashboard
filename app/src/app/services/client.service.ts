@@ -11,7 +11,7 @@ export class ClientService {
 
   constructor(private http: HttpClient) {}
 
-  getAll(): Observable<Client[]> {
+  getAll() : Observable<Client[]> {
     return this.http.get<{ data: Client[] }>(`${this.apiUrl}/`)
       .pipe(map((response) => {
         return response.data
@@ -20,8 +20,9 @@ export class ClientService {
 
   getById() {}
 
-  getByName(name : string) {
-    return this.http.get<{ data: Client[] }>(`${this.apiUrl}/name/${name}`)
+  getByName(name : string) : Observable<Client[]> {
+    let name_of_client = name;
+    return this.http.get<{ data: Client[] }>(`${this.apiUrl}/name/${name_of_client}`)
       .pipe(map((response) => {
         return response.data
       }))
