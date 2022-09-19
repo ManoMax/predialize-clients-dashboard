@@ -6,13 +6,15 @@ import { ClientService } from 'src/app/services/client.service';
 
 import { MatCardModule } from  '@angular/material/card';
 
-import { ListClientComponent } from '../../components/client/list-client/list-client.component'
 import { CommonModule } from '@angular/common';
 
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+
+import { ListClientComponent } from '../../components/client/list-client/list-client.component'
 import { CardClientComponent } from '../../components/client/card-client/card-client.component';
+import { CardTotaisComponent } from '../../components/client/card-totais/card-totais.component';
 
 export const ClientRoutes: Routes = [
   {
@@ -22,7 +24,10 @@ export const ClientRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [ClientComponent, ListClientComponent, CardClientComponent],
+  declarations: [ClientComponent,
+    ListClientComponent,
+    CardClientComponent,
+    CardTotaisComponent],
   imports: [CommonModule,
     MatCardModule,
     FormsModule,

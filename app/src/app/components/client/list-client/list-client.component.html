@@ -8,22 +8,13 @@
     <button (click)="listarClientes()">Listar Clientes</button>
     <button (click)="listarTotalizadores()">Totais</button>
 </div>
-<mat-card *ngFor="let client of clients" class="item-client">
-    <app-card-client [client]="client"></app-card-client>
-</mat-card>
-<mat-card *ngFor="let card of totais" class="item-total">
-    <div>
-        <mat-card-title>Números Totais de nosso sistema:</mat-card-title>
-        <mat-card-content>
-            <p>
-                Quantidade total de Clientes: {{ card.quant_clients }}
-            </p>
-            <p>
-                Quantidade total de empreendimentos: {{ card.quant_enterprises }}
-            </p>
-            <p>
-                Quantidade total de imóveis: {{ card.quant_realties }}
-            </p>
-        </mat-card-content>
-    </div>
-</mat-card>
+<div *ngIf="card_client">
+    <mat-card *ngFor="let client of clients" class="item-client">
+        <app-card-client [client]="client" (click)="visualizarClient(client)"></app-card-client>
+    </mat-card>
+</div>
+<div *ngIf="card_totais">
+    <mat-card class="item-total">
+        <app-card-totais [totais]="totais"></app-card-totais>
+    </mat-card>
+</div>
