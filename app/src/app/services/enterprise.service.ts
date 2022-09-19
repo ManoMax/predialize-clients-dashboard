@@ -21,7 +21,13 @@ export class EnterpriseService {
 
   getById() {}
 
-  getByName() {}
+  getByName(name : string) : Observable<any> {
+    return this.http.get<{ data: any }>(`${this.apiUrl}/enterprise/name/${name}`)
+      .pipe(map((response) => {
+        // console.log(response)
+        return response.data
+      }))
+  }
 
   getTotalsByEnterprise() {}
 

@@ -11,12 +11,27 @@ export class ListEnterpriseComponent implements OnInit {
 
   enterprises: any = [];
 
+  name: string = ''
+
+  keyPress = (event) => {
+    if (event.target.value !== '') {
+      this.name = event.target.value;
+      this.enterpriseService.getByName(this.name).subscribe(enterprises => {
+        this.enterprises = enterprises;
+      })
+    } else {
+      this.enterpriseService.getAll().subscribe(enterprises => {
+        this.enterprises = enterprises;
+      })
+    }
+  }
+
   constructor(private enterpriseService : EnterpriseService) { }
 
   ngOnInit() : void {
     this.enterpriseService.getAll().subscribe(enterprises => {
+      console.log(enterprises)
       this.enterprises = enterprises;
-      console.log(this.enterprises)
     })
   }
 
