@@ -23,7 +23,7 @@ function getGeneralTotals(req, res) {
       "quant_realties": quant_realties
     }
 
-    return res.status(404).send({"data": result});
+    return res.status(200).send({"data": result});
 }
 
 module.exports = getGeneralTotals;
