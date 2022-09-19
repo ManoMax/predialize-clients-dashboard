@@ -7,3 +7,14 @@
     align-items: row;
     justify-content: space-between;
 }
+
+.filters {
+    display: flex;
+    align-items: row;
+}
+
+.filters button {
+    margin: 0px 0px 0px 30px;
+    height: 60px;
+    width: 100px;
+}

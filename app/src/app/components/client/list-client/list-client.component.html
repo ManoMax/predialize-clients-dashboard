@@ -1,9 +1,13 @@
-<form class="form">
-    <mat-form-field class="input-full-width" appearance="fill">
-        <mat-label>Filtrar clientes</mat-label>
-        <input matInput placeholder="Ex. Predialize" (change)="keyPress($event)">
-    </mat-form-field>
-</form>
+<div class="filters">
+    <form class="form">
+        <mat-form-field class="input-full-width" appearance="fill">
+            <mat-label>Filtrar clientes</mat-label>
+            <input matInput placeholder="Ex. Predialize" (change)="keyPress($event)">
+        </mat-form-field>
+    </form>
+    <button (click)="listarClientes()">Listar Clientes</button>
+    <button (click)="listarTotalizadores()">Totais</button>
+</div>
 <ul>
     <mat-card *ngFor="let client of clients" class="item-client">
         <div>
@@ -19,5 +23,23 @@
             </mat-card-content>
         </div>
         <img [src]="client.image_src" class="img1" alt="logo do cliente">
+    </mat-card>
+</ul>
+<ul>
+    <mat-card *ngFor="let card of totais" class="item-total">
+        <div>
+            <mat-card-title>Números Totais de nosso sistema:</mat-card-title>
+            <mat-card-content>
+                <p>
+                    Quantidade total de Clientes: {{ card.quant_clients }}
+                </p>
+                <p>
+                    Quantidade total de empreendimentos: {{ card.quant_enterprises }}
+                </p>
+                <p>
+                    Quantidade total de imóveis: {{ card.quant_realties }}
+                </p>
+            </mat-card-content>
+        </div>
     </mat-card>
 </ul>

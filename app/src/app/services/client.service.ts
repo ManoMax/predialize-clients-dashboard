@@ -28,7 +28,12 @@ export class ClientService {
       }))
   }
 
-  getGeneralTotals() {}
+  getGeneralTotals() : Observable<any> {
+    return this.http.get<{ data: any }>(`${this.apiUrl}/totals`)
+      .pipe(map((response) => {
+        return response.data
+      }))
+  }
 
   getTotalsByCompany() {}
 }
