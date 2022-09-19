@@ -22,7 +22,9 @@ export const ClientRoutes: Routes = [
 
 @NgModule({
   declarations: [ClientComponent, ListClientComponent],
-  imports: [CommonModule, MatCardModule, FormsModule,
+  imports: [CommonModule,
+    MatCardModule,
+    FormsModule,
     MatFormFieldModule,
     MatInputModule],
   providers: [ClientService]

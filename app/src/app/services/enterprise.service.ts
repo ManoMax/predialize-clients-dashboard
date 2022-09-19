@@ -1,6 +1,9 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { environment } from "../../environments/environment";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
+import { Enterprise } from '../pages/enterprise/enterprise.model';
 
 @Injectable()
 export class EnterpriseService {
@@ -8,7 +11,13 @@ export class EnterpriseService {
 
   constructor(private http: HttpClient) {}  
 
-  getAll() {}
+  getAll() : Observable<any> {
+    return this.http.get<{ enterprises: any }>(`${this.apiUrl}/enterprise`)
+      .pipe(map((response) => {
+        // console.log(response)
+        return response.enterprises
+      }))
+  }
 
   getById() {}
 
