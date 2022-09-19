@@ -8,7 +8,9 @@
     [opened]="(isHandset$ | async) === false"
   >
     <mat-toolbar>
-      <img src="assets/logo.png" alt="" id="logo" />
+      <a [routerLink]="['/']">
+        <img src="assets/logo.png" alt="" id="logo" />
+      </a>
     </mat-toolbar>
     <mat-nav-list>
       <a mat-list-item [routerLink]="['/client']">
