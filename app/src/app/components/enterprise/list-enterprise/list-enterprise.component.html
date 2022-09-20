@@ -6,7 +6,7 @@
         </mat-form-field>
     </form>
 </div>
-<ul>
+<div>
     <mat-card *ngFor="let enterprise of enterprises" class="item-enterprise">
         <div>
             <mat-card-title>{{ enterprise.enterprise.name }}</mat-card-title>
@@ -22,4 +22,4 @@
         </div>
         <img [src]="enterprise.enterprise.image_src" class="img1" alt="logo da empresa">
     </mat-card>
-</ul>
+</div>

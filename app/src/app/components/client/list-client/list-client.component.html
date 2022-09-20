@@ -13,8 +13,6 @@
         <app-card-client [client]="client" (click)="visualizarClient(client)"></app-card-client>
     </mat-card>
 </div>
-<div *ngIf="card_totais">
-    <mat-card class="item-total">
-        <app-card-totais [totais]="totais"></app-card-totais>
-    </mat-card>
+<div *ngIf="card_totais" >
+    <app-card-totais [totais]="totais"></app-card-totais>
 </div>
