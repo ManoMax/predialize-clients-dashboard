@@ -1,0 +1,9 @@
+<mat-card class="card">
+    <div>
+        <mat-card-title>{{ client?.name }}</mat-card-title>
+        <mat-card-subtitle>Cliente de ID: {{ client?._id }}</mat-card-subtitle>
+    </div>
+    <a>
+        <img [src]="client?.image_src" class="img1" alt="logo do cliente">
+    </a>
+</mat-card>

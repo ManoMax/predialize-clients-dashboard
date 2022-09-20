@@ -18,7 +18,12 @@ export class ClientService {
       }))
   }
 
-  getById() {}
+  getById(id : string) : Observable<any> {
+    return this.http.get<{ client: any }>(`${this.apiUrl}/${id}`)
+      .pipe(map((response) => {
+        return response.client
+      }))
+  }
 
   getByName(name : string) : Observable<Client[]> {
     let name_of_client = name;

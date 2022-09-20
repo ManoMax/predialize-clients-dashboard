@@ -15,11 +15,16 @@ import { MatInputModule } from '@angular/material/input';
 import { ListClientComponent } from '../../components/client/list-client/list-client.component'
 import { CardClientComponent } from '../../components/client/card-client/card-client.component';
 import { CardTotaisComponent } from '../../components/client/card-totais/card-totais.component';
+import { PageClientComponent } from '../../components/client/page-client/page-client.component';
 
 export const ClientRoutes: Routes = [
   {
     path: 'client',
     component: ClientComponent
+  },
+  {
+    path: 'page/:id',
+    component: PageClientComponent
   }
 ];
 
@@ -27,7 +32,8 @@ export const ClientRoutes: Routes = [
   declarations: [ClientComponent,
     ListClientComponent,
     CardClientComponent,
-    CardTotaisComponent],
+    CardTotaisComponent,
+    PageClientComponent],
   imports: [CommonModule,
     MatCardModule,
     FormsModule,

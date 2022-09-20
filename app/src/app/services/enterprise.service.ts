@@ -12,6 +12,7 @@ export class EnterpriseService {
   constructor(private http: HttpClient) {}  
 
   getAll() : Observable<any> {
+    console.log('ue')
     return this.http.get<{ enterprises: any }>(`${this.apiUrl}/enterprise`)
       .pipe(map((response) => {
         // console.log(response)
