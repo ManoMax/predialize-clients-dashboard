@@ -30,7 +30,6 @@ export class ListEnterpriseComponent implements OnInit {
 
   ngOnInit() : void {
     this.enterpriseService.getAll().subscribe(enterprises => {
-      console.log(enterprises)
       this.enterprises = enterprises;
     })
   }

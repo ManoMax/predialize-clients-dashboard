@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Client } from 'src/app/pages/client/client.model';
 import { ClientService } from '../../../services/client.service';
@@ -8,23 +8,27 @@ import { ClientService } from '../../../services/client.service';
   templateUrl: './page-client.component.html',
   styleUrls: ['./page-client.component.scss']
 })
-export class PageClientComponent implements OnInit {
+export class PageClientComponent implements AfterViewInit {
 
   id: string
   client: Client;
 
+  @ViewChild('imgclient', null) input: ElementRef<HTMLImageElement>;
+
+  load_image: string = "app/src/assets/load_image.jpg";
+
   constructor(
     private route: ActivatedRoute,
+    private renderer: Renderer2,
     private clientService: ClientService) {}
-  
-  ngOnInit(): void {
-    this.id = this.route.snapshot.paramMap.get('id')
-    console.log(this.id)
 
-    if (this.id !== null || this.id !== undefined || this.id !== '') {
+  ngAfterViewInit() {
+    this.id = this.route.snapshot.paramMap.get('id')
+
+    if (this.id !== null && this.id !== undefined && this.id !== '') {
       this.clientService.getById(this.id).subscribe(client => {
         this.client = client;
-        console.log(this.client)
+        this.renderer.setProperty(this.input.nativeElement, 'src', client.image_src);
       })
     }
   }
