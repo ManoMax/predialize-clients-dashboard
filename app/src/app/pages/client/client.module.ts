@@ -31,9 +31,9 @@ export const ClientRoutes: Routes = [
 @NgModule({
   declarations: [ClientComponent,
     ListClientComponent,
+    PageClientComponent,
     CardClientComponent,
-    CardTotaisComponent,
-    PageClientComponent],
+    CardTotaisComponent],
   imports: [CommonModule,
     MatCardModule,
     FormsModule,

@@ -12,10 +12,8 @@ export class EnterpriseService {
   constructor(private http: HttpClient) {}  
 
   getAll() : Observable<any> {
-    console.log('ue')
     return this.http.get<{ enterprises: any }>(`${this.apiUrl}/enterprise`)
       .pipe(map((response) => {
-        // console.log(response)
         return response.enterprises
       }))
   }
@@ -25,7 +23,6 @@ export class EnterpriseService {
   getByName(name : string) : Observable<any> {
     return this.http.get<{ data: any }>(`${this.apiUrl}/enterprise/name/${name}`)
       .pipe(map((response) => {
-        // console.log(response)
         return response.data
       }))
   }
