@@ -12,9 +12,9 @@ export class EnterpriseService {
   constructor(private http: HttpClient) {}  
 
   getAll() : Observable<any> {
-    return this.http.get<{ enterprises: any }>(`${this.apiUrl}/enterprise`)
+    return this.http.get<{ data: any }>(`${this.apiUrl}/enterprise`)
       .pipe(map((response) => {
-        return response.enterprises
+        return response.data
       }))
   }
 

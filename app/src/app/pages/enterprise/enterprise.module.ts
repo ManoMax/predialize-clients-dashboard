@@ -6,12 +6,14 @@ import { EnterpriseService } from 'src/app/services/enterprise.service';
 
 import { MatCardModule } from  '@angular/material/card';
 
-import { ListEnterpriseComponent } from '../../components/enterprise/list-enterprise/list-enterprise.component'
+import { ListEnterpriseComponent } from '../../components/enterprise/list-enterprise/list-enterprise.component';
+
 import { CommonModule } from '@angular/common';
 
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { CardEnterpriseComponent } from 'src/app/components/enterprise/card-enterprise/card-enterprise.component';
 
 export const EnterpriseRoutes: Routes = [
   {
@@ -21,7 +23,9 @@ export const EnterpriseRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [EnterpriseComponent, ListEnterpriseComponent],
+  declarations: [EnterpriseComponent,
+    ListEnterpriseComponent,
+    CardEnterpriseComponent],
   imports: [CommonModule,
     MatCardModule,
     FormsModule,

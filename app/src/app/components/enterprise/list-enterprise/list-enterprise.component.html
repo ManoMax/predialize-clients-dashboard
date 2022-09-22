@@ -1,25 +1,13 @@
 <div class="filters">
     <form class="form">
-        <mat-form-field class="input-full-width" appearance="fill">
+        <mat-form-field appearance="fill">
             <mat-label>Filtrar Empresas</mat-label>
             <input matInput placeholder="Ex. Predialize" (change)="keyPress($event)">
         </mat-form-field>
     </form>
 </div>
 <div>
-    <mat-card *ngFor="let enterprise of enterprises" class="item-enterprise">
-        <div>
-            <mat-card-title>{{ enterprise.enterprise.name }}</mat-card-title>
-            <mat-card-subtitle>Empresa: {{ enterprise.enterprise.name }} | Cliente: {{ enterprise.client_name }}</mat-card-subtitle>
-            <mat-card-content>
-                <p>
-                    ID da Empresa: {{ enterprise.enterprise._id }}
-                </p>
-                <p>
-                    Quantidade de imóveis: {{ enterprise.enterprise.realties }}
-                </p>
-            </mat-card-content>
-        </div>
-        <img [src]="enterprise.enterprise.image_src" class="img1" alt="logo da empresa">
+    <mat-card *ngFor="let data of enterprises">
+        <app-card-enterprise [data]="data"></app-card-enterprise>
     </mat-card>
 </div>

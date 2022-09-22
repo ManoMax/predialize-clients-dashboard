@@ -18,7 +18,7 @@ function getAllEnterprises(req, res) {
       }
     }
 
-    return res.status(201).send({"enterprises": array_of_enterprisesDTO});
+    return res.status(201).send({"data": array_of_enterprisesDTO});
 }
 
 module.exports = getAllEnterprises;
