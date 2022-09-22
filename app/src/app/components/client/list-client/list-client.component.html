@@ -1,15 +1,17 @@
 <div class="filters">
+    <div class="navigation">
+        <button class="btns" (click)="listarClientes()">Listar Clientes</button>
+        <button class="btns" (click)="listarTotalizadores()">Informações Totais</button>
+    </div>
     <form class="form">
-        <mat-form-field class="input-full-width" appearance="fill">
+        <mat-form-field appearance="fill">
             <mat-label>Filtrar clientes</mat-label>
-            <input matInput placeholder="Ex. Predialize" (change)="keyPress($event)">
+            <input class="input" matInput placeholder="Ex. Predialize" (change)="keyPress($event)">
         </mat-form-field>
     </form>
-    <button (click)="listarClientes()">Listar Clientes</button>
-    <button (click)="listarTotalizadores()">Totais</button>
 </div>
 <div *ngIf="card_client">
-    <mat-card *ngFor="let client of clients" class="item-client">
+    <mat-card *ngFor="let client of clients">
         <app-card-client [client]="client" (click)="visualizarClient(client)"></app-card-client>
     </mat-card>
 </div>
