@@ -11,7 +11,7 @@
     </form>
 </div>
 <div *ngIf="card_client">
-    <mat-card *ngFor="let client of clients">
+    <mat-card *ngFor="let client of clients" class="card_list">
         <app-card-client [client]="client" (click)="visualizarClient(client)"></app-card-client>
     </mat-card>
 </div>
