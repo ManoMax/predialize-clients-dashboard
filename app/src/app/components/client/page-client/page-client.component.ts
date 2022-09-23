@@ -28,7 +28,9 @@ export class PageClientComponent implements AfterViewInit {
     if (this.id !== null && this.id !== undefined && this.id !== '') {
       this.clientService.getById(this.id).subscribe(client => {
         this.client = client;
-        this.renderer.setProperty(this.input.nativeElement, 'src', client.image_src);
+        if (client.image_src !== undefined) {
+          this.renderer.setProperty(this.input.nativeElement, 'src', client.image_src);
+        }
       })
     }
   }
