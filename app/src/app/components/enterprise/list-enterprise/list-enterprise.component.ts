@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { EnterpriseService } from '../../../services/enterprise.service';
 import { Enterprise } from '../../../pages/enterprise/enterprise.model';
 
@@ -9,30 +9,15 @@ import { Enterprise } from '../../../pages/enterprise/enterprise.model';
 })
 export class ListEnterpriseComponent implements OnInit {
   
-  enterprises: any = [];
+  @Input()
+  enterprises: any;
   
-  name: string = ''
+  @Input()
+  name: string;
   
-  constructor(private enterpriseService : EnterpriseService) { }
+  constructor() { }
   
   ngOnInit() : void {
-    this.enterpriseService.getAll().subscribe(enterprises => {
-      this.enterprises = enterprises;
-    })
+    
   }
-  
-  keyPress = (event) => {
-    if (event.target.value !== '') {
-      this.name = event.target.value;
-      this.enterpriseService.getByName(this.name).subscribe(enterprises => {
-        this.enterprises = enterprises;
-      })
-    } else {
-      this.enterpriseService.getAll().subscribe(enterprises => {
-        this.enterprises = enterprises;
-      })
-    }
-  }
-
-
 }

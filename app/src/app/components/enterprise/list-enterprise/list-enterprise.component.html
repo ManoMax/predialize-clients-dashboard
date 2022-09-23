@@ -1,11 +1,3 @@
-<div class="filters">
-    <form class="form">
-        <mat-form-field appearance="fill">
-            <mat-label>Filtrar Empresas</mat-label>
-            <input matInput placeholder="Ex. Predialize" (change)="keyPress($event)">
-        </mat-form-field>
-    </form>
-</div>
 <div>
     <mat-card *ngFor="let data of enterprises" class="card_list">
         <app-card-enterprise [data]="data"></app-card-enterprise>
