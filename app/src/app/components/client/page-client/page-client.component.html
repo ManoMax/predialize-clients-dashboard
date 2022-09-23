@@ -1,6 +1,6 @@
-<mat-card>
+<mat-card class="content">
     <mat-card class="card">
-        <div class="content">
+        <div class="client_card">
             <div>
                 <mat-card-title>{{ client?.name }}</mat-card-title>
                 <mat-card-subtitle>Cliente de ID: {{ client?._id }}</mat-card-subtitle>
@@ -13,4 +13,5 @@
             <button class="voltar" (click)="backToListClient()">Voltar</button>
         </mat-card-actions>
     </mat-card>
+    <app-card-totais [totais]="totais" [list_client_view]=false></app-card-totais>
 </mat-card>

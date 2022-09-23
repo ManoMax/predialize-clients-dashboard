@@ -12,6 +12,7 @@ export class PageClientComponent implements AfterViewInit {
 
   id: string
   client: Client;
+  totais: any;
 
   @ViewChild('imgclient', null) input: ElementRef<HTMLImageElement>;
 
@@ -31,6 +32,13 @@ export class PageClientComponent implements AfterViewInit {
         this.client = client;
         if (client.image_src !== undefined) {
           this.renderer.setProperty(this.input.nativeElement, 'src', client.image_src);
+        }
+      })
+
+      this.clientService.getTotalsByCompany(this.id).subscribe(totais => {
+        this.totais = {
+          "quant_enterprises": totais.quant_enterprises,
+          "quant_realties": totais.quant_realties
         }
       })
     }

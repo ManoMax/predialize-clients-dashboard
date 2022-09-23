@@ -10,6 +10,9 @@ export class CardTotaisComponent implements OnInit {
   @Input()
   totais?: any;
 
+  @Input()
+  list_client_view: boolean;
+
   constructor() { }
 
   ngOnInit() {

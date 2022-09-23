@@ -40,5 +40,10 @@ export class ClientService {
       }))
   }
 
-  getTotalsByCompany() {}
+  getTotalsByCompany(client_id: string) : Observable<any> {
+    return this.http.get<{ data: any }>(`${this.apiUrl}/${client_id}/totals`)
+      .pipe(map((response) => {
+        return response.data
+      }))
+  }
 }
