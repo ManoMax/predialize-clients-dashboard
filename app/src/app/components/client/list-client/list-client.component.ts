@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from '../../../services/client.service';
 import { Client } from '../../../pages/client/client.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-client',
@@ -13,11 +14,12 @@ export class ListClientComponent implements OnInit {
   totais: any = {}
 
   card_client: boolean = true;
-  card_totais: boolean = true;
+  card_totais: boolean = false;
 
   name: string = ''
 
-  constructor(private clientService: ClientService) { }
+  constructor(private clientService: ClientService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.clientService.getAll().subscribe(clients => {
@@ -63,7 +65,7 @@ export class ListClientComponent implements OnInit {
   }
 
   visualizarClient = (client : Client) => {
-    console.log(client._id)
+    this.router.navigate([`/page/${client._id}`]);
   }
 
 }

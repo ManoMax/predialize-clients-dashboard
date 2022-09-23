@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Client } from 'src/app/pages/client/client.model';
 import { ClientService } from '../../../services/client.service';
 
@@ -18,6 +18,7 @@ export class PageClientComponent implements AfterViewInit {
   load_image: string = "app/src/assets/load_image.jpg";
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private renderer: Renderer2,
     private clientService: ClientService) {}
@@ -33,6 +34,10 @@ export class PageClientComponent implements AfterViewInit {
         }
       })
     }
+  }
+
+  backToListClient() {
+    this.router.navigate([`/client`]);
   }
 
 }
