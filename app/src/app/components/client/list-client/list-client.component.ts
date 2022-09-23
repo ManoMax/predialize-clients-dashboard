@@ -65,7 +65,7 @@ export class ListClientComponent implements OnInit {
   }
 
   visualizarClient = (client : Client) => {
-    this.router.navigate([`/page/${client._id}`]);
+    this.router.navigate([`/client/${client._id}`]);
   }
 
 }

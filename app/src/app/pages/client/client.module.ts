@@ -23,7 +23,7 @@ export const ClientRoutes: Routes = [
     component: ClientComponent
   },
   {
-    path: 'page/:id',
+    path: 'client/:id',
     component: PageClientComponent
   }
 ];
