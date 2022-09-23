@@ -1,7 +1,8 @@
 import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Client } from 'src/app/pages/client/client.model';
-import { ClientService } from '../../../services/client.service';
+import { EnterpriseService } from 'src/app/services/enterprise.service';
+import { ClientService } from 'src/app/services/client.service';
 
 @Component({
   selector: 'app-page-client',
@@ -12,6 +13,7 @@ export class PageClientComponent implements AfterViewInit {
 
   id: string
   client: Client;
+  enterprises: any;
   totais: any;
 
   @ViewChild('imgclient', null) input: ElementRef<HTMLImageElement>;
@@ -22,7 +24,8 @@ export class PageClientComponent implements AfterViewInit {
     private router: Router,
     private route: ActivatedRoute,
     private renderer: Renderer2,
-    private clientService: ClientService) {}
+    private clientService: ClientService,
+    private enterpriseService: EnterpriseService) {}
 
   ngAfterViewInit() {
     this.id = this.route.snapshot.paramMap.get('id')
@@ -40,6 +43,11 @@ export class PageClientComponent implements AfterViewInit {
           "quant_enterprises": totais.quant_enterprises,
           "quant_realties": totais.quant_realties
         }
+      })
+
+      this.enterpriseService.getEnterprisesByCompany(this.id).subscribe(enterprises => {
+        console.log(enterprises)
+        this.enterprises = enterprises;
       })
     }
   }

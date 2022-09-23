@@ -29,5 +29,11 @@ export class EnterpriseService {
 
   getTotalsByEnterprise() {}
 
-  getEnterprisesByCompany() {}
+  getEnterprisesByCompany(client_id : string) : Observable<any> {
+    return this.http.get<{ enterprises: any }>(`${this.apiUrl}/${client_id}/enterprise`)
+      .pipe(map((response) => {
+        console.log(response)
+        return response.enterprises
+      }))
+  }
 }
