@@ -12,9 +12,6 @@ export class ListEnterpriseComponent implements OnInit {
   @Input()
   enterprises: any;
   
-  @Input()
-  name: string;
-  
   constructor() { }
   
   ngOnInit() : void {
