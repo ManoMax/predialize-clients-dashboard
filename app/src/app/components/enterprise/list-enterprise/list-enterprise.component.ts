@@ -8,11 +8,19 @@ import { Enterprise } from '../../../pages/enterprise/enterprise.model';
   styleUrls: ['./list-enterprise.component.scss']
 })
 export class ListEnterpriseComponent implements OnInit {
-
+  
   enterprises: any = [];
-
+  
   name: string = ''
-
+  
+  constructor(private enterpriseService : EnterpriseService) { }
+  
+  ngOnInit() : void {
+    this.enterpriseService.getAll().subscribe(enterprises => {
+      this.enterprises = enterprises;
+    })
+  }
+  
   keyPress = (event) => {
     if (event.target.value !== '') {
       this.name = event.target.value;
@@ -26,12 +34,5 @@ export class ListEnterpriseComponent implements OnInit {
     }
   }
 
-  constructor(private enterpriseService : EnterpriseService) { }
-
-  ngOnInit() : void {
-    this.enterpriseService.getAll().subscribe(enterprises => {
-      this.enterprises = enterprises;
-    })
-  }
 
 }
