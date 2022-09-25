@@ -10,11 +10,9 @@ function getAllEnterprises(req, res) {
       for (var j = 0 ; j < enterprises_of_client.length ; j++) {
         let enterprise = enterprises_of_client[j];
 
-        let enterpriseDTO = {
-          client_name: client.name,
-          enterprise
-        }
-        array_of_enterprisesDTO.push(enterpriseDTO);
+        enterprise.client_name = client.name;
+
+        array_of_enterprisesDTO.push(enterprise);
       }
     }
 
