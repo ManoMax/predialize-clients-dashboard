@@ -11,10 +11,12 @@ export class ListEnterpriseComponent implements OnInit {
   
   @Input()
   enterprises: any;
+
+  @Input()
+  page_client_view: boolean;
   
   constructor() { }
   
   ngOnInit() : void {
-    
   }
 }
