@@ -1,13 +1,13 @@
 <div class="card">
     <div>
-        <mat-card-title>{{ data?.enterprise.name }}</mat-card-title>
-        <mat-card-subtitle>Empresa: {{ data?.enterprise.name }} | Cliente: {{ data?.client_name }}</mat-card-subtitle>
+        <mat-card-title>{{ data?.name }}</mat-card-title>
+        <mat-card-subtitle #info_list>Cliente: {{ data?.client_name }}</mat-card-subtitle>
         <mat-card-content>
             <p>
-                ID da Empresa: {{ data?.enterprise._id }}
+                ID da Empresa: {{ data?._id }}
             </p>
-            <p>
-                Quantidade de imóveis: {{ data?.enterprise.realties }}
+            <p #info_list2>
+                Quantidade de imóveis: {{ data?.realties }}
             </p>
         </mat-card-content>
     </div>
