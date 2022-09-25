@@ -11,7 +11,7 @@ import { ClientService } from 'src/app/services/client.service';
 })
 export class PageClientComponent implements AfterViewInit {
 
-  id: string
+  id: string;
   client: Client;
   enterprises: any;
   totais: any;

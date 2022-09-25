@@ -31,6 +31,7 @@ export const EnterpriseRoutes: Routes = [
     FormsModule,
     MatFormFieldModule,
     MatInputModule],
-  providers: [EnterpriseService]
+  providers: [EnterpriseService],
+  exports: [ListEnterpriseComponent],
 })
 export class EnterpriseModule {}

@@ -16,6 +16,7 @@ import { ListClientComponent } from '../../components/client/list-client/list-cl
 import { CardClientComponent } from '../../components/client/card-client/card-client.component';
 import { CardTotaisComponent } from '../../components/client/card-totais/card-totais.component';
 import { PageClientComponent } from '../../components/client/page-client/page-client.component';
+import { EnterpriseModule } from '../enterprise/enterprise.module';
 
 export const ClientRoutes: Routes = [
   {
@@ -38,7 +39,8 @@ export const ClientRoutes: Routes = [
     MatCardModule,
     FormsModule,
     MatFormFieldModule,
-    MatInputModule],
+    MatInputModule,
+    EnterpriseModule],
   providers: [ClientService]
 })
 export class ClientModule {}

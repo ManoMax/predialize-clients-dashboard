@@ -14,5 +14,9 @@
         </mat-card-actions>
     </mat-card>
     <app-card-totais [totais]="totais" [list_client_view]=false></app-card-totais>
-    <!-- <app-list-enterprise [enterprises]="enterprises"></app-list-enterprise> -->
+    <mat-card class="listagem">
+        <mat-card-title> Empresas relacionadas ao cliente: {{ client?.name }}</mat-card-title>
+        <mat-card-subtitle>Para visualizar o ID da empresa, consulte a página de Empreendimentos.</mat-card-subtitle>
+        <app-list-enterprise [page_client_view]=true [enterprises]="enterprises"></app-list-enterprise>
+    </mat-card>
 </mat-card>
