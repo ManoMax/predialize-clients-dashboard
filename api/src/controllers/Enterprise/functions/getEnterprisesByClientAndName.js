@@ -19,7 +19,7 @@ function getEnterprisesByClientAndName(req, res) {
               _id: enterprise._id,
               image_src: enterprise.image_src,
               name: enterprise.name,
-              quant_realties: parseInt(enterprise.realties)
+              realties: parseInt(enterprise.realties)
             }
             array_of_enterprisesDTO.push(enterpriseDTO)
           }
