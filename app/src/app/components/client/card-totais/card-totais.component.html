@@ -1,6 +1,7 @@
 <mat-card>
     <div>
-        <mat-card-title>Números Totais de nosso sistema:</mat-card-title>
+        <mat-card-title *ngIf="!list_client_view">Números Totais do Cliente:</mat-card-title>
+        <mat-card-title *ngIf="list_client_view">Números Totais de nosso sistema:</mat-card-title>
         <mat-card-content>
             <p *ngIf="list_client_view">
                 Quantidade total de Clientes: {{ totais?.quant_clients }}
