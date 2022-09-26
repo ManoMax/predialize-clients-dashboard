@@ -12,12 +12,10 @@ function getEnterprisesByName(req, res) {
         let enterprise = enterprises_of_client[j]
 
         if (enterprise.name.toLocaleLowerCase().includes(name.toLocaleLowerCase())) {
-          let enterpriseDTO = {
-            client_name: client.name,
-            enterprise
-          }
+
+          enterprise.client_name = client.name;
   
-          array_of_enterprisesDTO.push(enterpriseDTO)
+          array_of_enterprisesDTO.push(enterprise)
         }
       }
     }
