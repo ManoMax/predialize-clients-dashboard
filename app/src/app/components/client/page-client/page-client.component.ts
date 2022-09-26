@@ -15,6 +15,8 @@ export class PageClientComponent implements AfterViewInit {
   client: Client;
   enterprises: any;
   totais: any;
+  page_client_view: boolean = true;
+  name: string = ''
 
   @ViewChild('imgclient', null) input: ElementRef<HTMLImageElement>;
 
@@ -47,6 +49,21 @@ export class PageClientComponent implements AfterViewInit {
 
       this.enterpriseService.getEnterprisesByCompany(this.id).subscribe(enterprises => {
         console.log(enterprises)
+        this.enterprises = enterprises;
+      })
+    }
+  }
+
+  keyPress = (event) => {
+    if (event.target.value !== '') {
+      this.name = event.target.value;
+      this.page_client_view = false;
+      this.enterpriseService.getEnterprisesByCompanyAndName(this.id, this.name).subscribe(enterprises => {
+        this.enterprises = enterprises;
+      })
+    } else {
+      this.page_client_view = true;
+      this.enterpriseService.getEnterprisesByCompany(this.id).subscribe(enterprises => {
         this.enterprises = enterprises;
       })
     }

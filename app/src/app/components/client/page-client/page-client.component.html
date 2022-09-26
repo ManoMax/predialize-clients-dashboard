@@ -1,4 +1,10 @@
 <mat-card class="content">
+    <form class="form">
+        <mat-form-field appearance="fill" class="input">
+            <mat-label>Filtrar empresas</mat-label>
+            <input matInput placeholder="Ex. Predialize" (change)="keyPress($event)">
+        </mat-form-field>
+    </form>
     <mat-card class="card">
         <div class="client_card">
             <div>
@@ -17,6 +23,6 @@
     <mat-card class="listagem">
         <mat-card-title> Empresas relacionadas ao cliente: {{ client?.name }}</mat-card-title>
         <mat-card-subtitle>Para visualizar o ID da empresa, consulte a página de Empreendimentos.</mat-card-subtitle>
-        <app-list-enterprise [page_client_view]=true [enterprises]="enterprises"></app-list-enterprise>
+        <app-list-enterprise [page_client_view]="page_client_view" [enterprises]="enterprises"></app-list-enterprise>
     </mat-card>
 </mat-card>
