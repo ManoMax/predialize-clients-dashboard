@@ -3,28 +3,22 @@ const data = require('../../../../clients.mock');
 function getClientTotals(req, res) {
     let client_id = req.params.client_id;
 
-    for (var i = 0; i < data.length; i++) {
-      let client = data[i]
+    let result = data.filter((client) => { return client._id == client_id; })
+    .map((client) => {
 
-      if (client._id == client_id) {
-        let enterprises_of_client = client.enterprises;
-        let quant_realties = 0;
+      const quant_realties = client.enterprises.reduce((a, b) => {
+        return parseInt(b.realties) + a
+      }, 0)
 
-        for (var j = 0 ; j < enterprises_of_client.length ; j++) {
-          let enterprise = enterprises_of_client[j];
-          quant_realties += parseInt(enterprise.realties);
-        }
-
-        let result = {
-          quant_enterprises: enterprises_of_client.length,
-          quant_realties: quant_realties
-        }
-
-        return res.status(201).send({"data": result});
+      let result = {
+        quant_enterprises: client.enterprises.length,
+        quant_realties: quant_realties
       }
-    }
+      return result 
+    });
 
-    return res.status(404).send({"message": "Cliente não encontrado."});
+    if (result.length > 0) return res.status(201).send({"data": result[0]});
+    else return res.status(404).send({"message": "Cliente não encontrado."});
 }
 
 module.exports = getClientTotals;
