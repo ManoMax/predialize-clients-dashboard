@@ -5,47 +5,29 @@ const EnterpriseController = require("./controllers/Enterprise/EnterpriseControl
 
 module.exports.load = (app) => {
   /** Get all clients */
-  app.get("/", (req, res, next) => {
-    return ClientController.getAllClients(req, res);
-  });
+  app.get("/", ClientController.getAllClients);
 
   /** Get clients by name */
-  app.get("/name/:name", (req, res, next) => {
-    return ClientController.getClientsByName(req, res);
-  });
+  app.get("/name/:name", ClientController.getClientsByName);
   
   /** Get client totals */
-  app.get("/:client_id/totals", (req, res, next) => {
-    return ClientController.getClientTotals(req, res);
-  });
+  app.get("/:client_id/totals", ClientController.getClientTotals);
 
   /** Get all enterprises */
-  app.get("/enterprise", (req, res, next) => {
-    return EnterpriseController.getAllEnterprises(req, res);
-  });
+  app.get("/enterprise", EnterpriseController.getAllEnterprises);
 
   /** Get enterprises by name */
-  app.get("/enterprise/name/:name", (req, res, next) => {
-    return EnterpriseController.getEnterprisesByName(req, res);
-  });
+  app.get("/enterprise/name/:name", EnterpriseController.getEnterprisesByName);
 
   /** Get all enterprises by client */
-  app.get("/:client_id/enterprise", (req, res, next) => {
-    return EnterpriseController.getAllEnterprisesByClient(req, res);
-  });
+  app.get("/:client_id/enterprise", EnterpriseController.getAllEnterprisesByClient);
 
   /** Get enterprises by client and name */
-  app.get("/:client_id/enterprise/name/:name", (req, res, next) => {
-    return EnterpriseController.getEnterprisesByClientAndName(req, res);
-  });
+  app.get("/:client_id/enterprise/name/:name", EnterpriseController.getEnterprisesByClientAndName);
 
   /** Get general totals */
-  app.get("/totals", (req, res, next) => {
-    return ClientController.getGeneralTotals(req, res);
-  });
+  app.get("/totals", ClientController.getGeneralTotals);
 
   /** Get a client by _id */
-  app.get("/:_id", (req, res, next) => {
-    return ClientController.getClientById(req, res);
-  });
+  app.get("/:_id", ClientController.getClientById);
 };
